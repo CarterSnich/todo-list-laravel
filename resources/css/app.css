@@ -1,0 +1,218 @@
+@font-face {
+    font-family: "Nunito";
+    src: url("../../public/fonts/Nunito[wght].ttf") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #61dafb #282c34;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 14px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #282c34;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #61dafb;
+    border-radius: 10px;
+    border: 4px solid #282c34;
+}
+
+body {
+    margin: 0;
+
+    font-family: "Nunito", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: calc(10px + 2vmin);
+}
+
+main {
+    padding: 0.75rem;
+    border: 4px solid #61dafb;
+    border-radius: 0.75rem;
+
+    height: 600px;
+    width: min(100%, 600px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+}
+
+#todo-list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 1.75rem;
+
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: auto;
+}
+
+#todo-list:focus {
+    outline: none;
+}
+
+.todo-list-item {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    padding-inline: 0.25rem;
+
+    position: relative;
+}
+
+.todo-list-item:not(:last-child)::after {
+    position: absolute;
+    content: "";
+
+    width: 100%;
+    height: 1px;
+
+    bottom: -0.9rem;
+    left: 0;
+
+    background-color: #61dafb80;
+}
+
+.todo-list-item > input[type="checkbox"] {
+    margin: auto 0.25rem;
+}
+
+.todo-list-item > span {
+    flex-grow: 1;
+
+    display: grid;
+    place-items: stretch;
+    place-content: stretch;
+}
+
+.todo-list-item > input[type="checkbox"]:checked ~ span {
+    text-decoration: line-through;
+    filter: brightness(40%);
+}
+
+.todo-list-item > button {
+    align-self: center;
+    background-color: #db2222;
+    padding: 0;
+    border: 1px solid #fb6161;
+    border-radius: 0.25rem;
+
+    color: white;
+    font-size: calc(10px + 2vmin);
+
+    aspect-ratio: 1;
+    height: 1.75rem;
+    width: auto;
+
+    opacity: 0%;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.todo-list-item:hover > button {
+    opacity: 100% !important;
+}
+
+.todo-list-item > button:hover {
+    background-color: #b60707;
+}
+
+.todo-list-item > button:active {
+    background-color: #910b0b;
+}
+
+.todo-list-item > button:focus {
+    outline: 4px solid #b6070780;
+}
+
+#add-todo-form {
+    display: flex;
+    flex-direction: row;
+    gap: 0.25rem;
+}
+
+#add-todo-form > textarea {
+    flex-grow: 1;
+
+    background-color: transparent;
+    padding: 0.5rem;
+    border: 1px solid #61f6fb;
+    border-radius: 0.25rem;
+    color: white;
+    font: inherit;
+    font-size: medium;
+    resize: none;
+}
+
+#add-todo-form > textarea:focus {
+    outline: 4px solid #07b0b680;
+}
+
+#add-todo-form > button {
+    align-self: flex-start;
+
+    background-color: #22dbd2;
+    padding: 0.5rem;
+    border: 1px solid #61f6fb;
+    border-radius: 0.25rem;
+
+    color: white;
+    text-shadow: 0px 0px 12px black;
+    font-size: calc(10px + 1vmin);
+    transition: all 0.3s ease-in-out;
+}
+
+#add-todo-form > button:hover {
+    background-color: #07b6b6;
+}
+#add-todo-form > button:active {
+    background-color: #0b918a;
+}
+
+#add-todo-form > button:focus {
+    outline: 4px solid #07b0b680;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+@keyframes widthZeroToHero {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
